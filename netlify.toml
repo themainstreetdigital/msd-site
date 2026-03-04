@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  command = ""
 
 [[headers]]
   for = "/*"
@@ -7,9 +8,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
 
-# Required for Netlify Identity + CMS
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
-  
