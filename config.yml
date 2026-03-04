@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: YOUR-GITHUB-USERNAME/msd-site
   branch: main
 
 media_folder: "images"
@@ -25,8 +26,8 @@ collections:
         fields:
           - { label: "Kicker (small text above headline)", name: "kicker", widget: "string", default: "Built for Small Businesses" }
           - { label: "Headline Line 1", name: "h1_line1", widget: "string", default: "Your business deserves a website that works" }
-          - { label: "Headline Line 2 (italic/accent)", name: "h1_line2", widget: "string", default: "as hard as you do." }
-          - { label: "Subheadline", name: "sub", widget: "text", default: "Main Street Digital is a one-person web design shop — honest pricing, clear deliverables, and support that actually shows up. No agency runaround." }
+          - { label: "Headline Line 2 (italic accent)", name: "h1_line2", widget: "string", default: "as hard as you do." }
+          - { label: "Subheadline", name: "sub", widget: "text", default: "Main Street Digital is a one-person web design shop — honest pricing, clear deliverables, and support that actually shows up." }
           - { label: "Honesty Note", name: "note", widget: "string", default: "No markup. No mystery. No over-promising." }
           - { label: "Primary Button Text", name: "btn1", widget: "string", default: "Get My Free Audit" }
           - { label: "Secondary Button Text", name: "btn2", widget: "string", default: "See Pricing" }
@@ -36,23 +37,7 @@ collections:
         file: "_data/honesty.json"
         fields:
           - { label: "Heading", name: "heading", widget: "string", default: "One person. Real tools. No fluff." }
-          - { label: "Body Text", name: "body", widget: "text", default: "Main Street Digital is run by one person — me. I'm self-trained, and I use modern AI-assisted tools and proven platforms to deliver professional results without a big agency's overhead or timeline. I work within a clear scope of what I know. You'll always know what you're getting before anything starts." }
-
-      - name: "services"
-        label: "🌐 Services Section"
-        file: "_data/services.json"
-        fields:
-          - { label: "Section Heading", name: "heading", widget: "string", default: "Services built around what small businesses actually need." }
-          - { label: "Section Subtext", name: "sub", widget: "string", default: "Everything here is something I can deliver solo with the right tools. No vague scope, no surprises at invoice time." }
-          - label: "Services List"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Icon (emoji)", name: "icon", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Tools (comma separated)", name: "tools", widget: "string" }
-              - { label: "Fine Print / Note", name: "note", widget: "string" }
+          - { label: "Body Text", name: "body", widget: "text", default: "Main Street Digital is run by one person — me. I'm self-trained, and I use modern AI-assisted tools and proven platforms to deliver professional results without a big agency's overhead or timeline." }
 
       - name: "pricing"
         label: "💰 Pricing Plans"
@@ -63,32 +48,32 @@ collections:
             widget: "list"
             fields:
               - { label: "Plan Name", name: "name", widget: "string" }
-              - { label: "Monthly Price (numbers only)", name: "price_monthly", widget: "number" }
-              - { label: "Annual Price (numbers only)", name: "price_annual", widget: "number" }
+              - { label: "Monthly Price (number only, no $)", name: "price_monthly", widget: "number" }
+              - { label: "Annual Price (number only, no $)", name: "price_annual", widget: "number" }
               - { label: "Price Unit (e.g. one-time or /month)", name: "unit", widget: "string" }
               - { label: "Short Pitch", name: "pitch", widget: "string" }
-              - { label: "Featured? (Most Popular badge)", name: "featured", widget: "boolean", default: false }
-              - label: "Features"
+              - { label: "Mark as Featured?", name: "featured", widget: "boolean", default: false }
+              - label: "Features List"
                 name: "features"
                 widget: "list"
                 field: { label: "Feature", name: "feature", widget: "string" }
-              - { label: "Fine Print", name: "fine_print", widget: "string" }
+              - { label: "Fine Print (italic note at bottom)", name: "fine_print", widget: "string" }
               - { label: "Button Text", name: "btn", widget: "string", default: "Get Started" }
 
       - name: "consultations"
         label: "📅 Consultations"
         file: "_data/consultations.json"
         fields:
-          - { label: "Section Heading", name: "heading", widget: "string" }
-          - { label: "Section Subtext", name: "sub", widget: "string" }
-          - label: "Options"
+          - { label: "Section Heading", name: "heading", widget: "string", default: "Not sure what you need?" }
+          - { label: "Section Subtext", name: "sub", widget: "string", default: "A focused 1-on-1 session where I look at your situation and give you a straight answer." }
+          - label: "Session Options"
             name: "options"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Price (numbers only)", name: "price", widget: "number" }
+              - { label: "Price (number only, no $)", name: "price", widget: "number" }
               - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Duration / Format", name: "meta", widget: "string" }
+              - { label: "Duration / Format (e.g. 30 minutes · Zoom call)", name: "meta", widget: "string" }
               - { label: "Best For (italic note)", name: "best_for", widget: "string" }
 
       - name: "testimonials"
@@ -99,16 +84,16 @@ collections:
             name: "items"
             widget: "list"
             fields:
-              - { label: "Quote", name: "quote", widget: "text" }
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Business", name: "business", widget: "string" }
-              - { label: "Initials (for avatar)", name: "initials", widget: "string" }
+              - { label: "Quote (no quotation marks needed)", name: "quote", widget: "text" }
+              - { label: "Client Name", name: "name", widget: "string" }
+              - { label: "Business Name", name: "business", widget: "string" }
+              - { label: "Initials (2 letters for avatar circle)", name: "initials", widget: "string" }
 
       - name: "faq"
         label: "❓ FAQ"
         file: "_data/faq.json"
         fields:
-          - label: "Questions"
+          - label: "Questions & Answers"
             name: "items"
             widget: "list"
             fields:
@@ -116,7 +101,7 @@ collections:
               - { label: "Answer", name: "a", widget: "text" }
 
       - name: "cta"
-        label: "📣 CTA Section"
+        label: "📣 Bottom CTA Section"
         file: "_data/cta.json"
         fields:
           - { label: "Headline", name: "heading", widget: "string", default: "Ready to get your business online — properly?" }
